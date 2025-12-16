@@ -1,38 +1,23 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: rgba(255, 136, 17, 1);
+  --text-color: rgba(255, 255, 255, 1);
+  --button-text-color: rgba(255, 255, 255, 1);
+  --small-text-color: rgba(135, 145, 183, 1);
+  --border-color: rgba(56, 65, 98, 1);
+  --form-bg-color: rgba(21, 26, 45, 1);
+  --bg-primary-color: rgba(14, 18, 35, 1);
+  --bg-secondary-color: rgba(27, 32, 55, 1);
+  --modal-bg-color: rgba(27, 32, 55, 0.5)
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[data-theme="light"] {
+  --primary-color: rgba(255, 136, 17, 1);
+  --text-color: rgba(27, 32, 55, 1);
+  --button-text-color: rgba(255, 255, 255, 1);
+  --small-text-color: rgba(102, 112, 133, 1);
+  --border-color: rgba(224, 226, 231, 1);
+  --form-bg-color: rgba(255, 255, 255, 1);
+  --bg-primary-color: rgba(250, 250, 250, 1);
+  --bg-secondary-color: rgba(255, 255, 255, 1);
+  --modal-bg-color: rgba(27, 32, 55, 0.5)
 }
