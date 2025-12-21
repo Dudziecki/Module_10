@@ -1,0 +1,211 @@
+.header {
+    background-color: var(--bg-primary-color);
+    font-size: 1.286rem;
+}
+
+.header-container {
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap:8px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.header-logo-text {
+    font-size: 1.25rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: black;
+}
+
+.header-user-name {
+    font-weight: 500;
+}
+
+.header-actions {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-button {
+    font-size: 1.125rem;
+    padding: 0.5rem;
+}
+
+.header-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.header-menu-list a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.1rem;
+}
+
+.header-user-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.burger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0;
+}
+
+.burger-button span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.burger-button.open {
+    display: none;
+}
+
+.header-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--modal-bg-color);
+    backdrop-filter: blur(20px);
+    z-index: 1001;
+    animation: fadeIn 0.3s ease;
+}
+
+.header-mobile-top {
+    display: none;
+}
+
+.header-user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .burger-button {
+        display: flex;
+    }
+
+    .header-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 293px;
+        height: 100vh;
+        background-color: var(--bg-secondary-color);
+        border-left: 1px solid var(--border-color);
+        flex-direction: column;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-right.mobile-open {
+        right: 0;
+    }
+
+    .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .header-button {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .header-mobile-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        width: 100%;
+        background-color: var(--bg-primary-color);
+    }
+
+    .header-mobile-top .header-logo-text {
+        color: white;
+    }
+
+    .header-menu-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding: 10px 16px;
+    }
+
+    .header-menu-list li {
+        width: 100%;
+    }
+
+    .header-menu-list a {
+        font-family: "Poppins", sans-serif;
+        display: block;
+        padding: 14px 16px;
+        margin: 4px 12px;
+        background-color: var(--bg-primary-color);
+        border-radius: 4px;
+        color: #a0a7c1;
+        transition: background 0.2s;
+    }
+
+    .header-menu-list a:active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
