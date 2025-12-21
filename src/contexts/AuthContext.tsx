@@ -1,9 +1,12 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
-
-interface User {
-  name: string;
-  avatar: string; // URL аватарки
-}
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from 'react';
+import { User } from '../services/types/auth.types';
+import { AuthService } from '../services/auth.service';
 
 interface AuthContextType {
   user: User | null;
@@ -15,6 +18,11 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const savedUser = AuthService.getCurrentUser();
+    setUser(savedUser);
+  }, []);
 
   const login = (userData: User) => setUser(userData);
   const logout = () => setUser(null);
