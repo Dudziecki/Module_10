@@ -1,24 +1,27 @@
 import React from 'react';
 import './Button.css';
 
-interface Props {
+type ButtonPropsType = {
   children: React.ReactNode;
   type?: 'submit' | 'button' | 'reset';
   onClick?: () => void;
   className?: string;
-}
+  disabled?: boolean;
+};
 
-export const Button: React.FC<Props> = ({
+export const Button: React.FC<ButtonPropsType> = ({
   children,
-  type = 'button', // Значение по умолчанию
+  type = 'button',
   onClick,
   className = '',
+  disabled,
 }) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`base-button-styles ${className}`} // Комбинируем базовые стили и внешние
+      disabled={disabled}
+      className={`base-button-styles ${className}`}
     >
       {children}
     </button>
