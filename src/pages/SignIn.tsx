@@ -6,9 +6,7 @@ import { Input } from '../components/common/Input/Input';
 import { Button } from '../components/common/Button/Button';
 import { EmailIcon } from '../assets/icons/EmailIcon';
 import { PasswordIcon } from '../assets/icons/PasswordIcon';
-import { Footer } from '../components/Footer/Footer';
 import { useAuth } from '../contexts/AuthContext';
-import { AuthService } from '../services/auth.service';
 
 export const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -20,8 +18,7 @@ export const SignIn = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const user = AuthService.signIn(email, password);
-      login(user);
+      login(email, password);
       navigate('/');
     } catch (err) {
       setError((err as Error).message);
@@ -67,6 +64,7 @@ export const SignIn = () => {
           </Link>
         </p>
       </div>
+      {error && <p>error</p>}
     </AuthLayout>
   );
 };

@@ -8,20 +8,18 @@ import { EmailIcon } from '../assets/icons/EmailIcon';
 import { PasswordIcon } from '../assets/icons/PasswordIcon';
 import '../components/AuthLayout/AuthLayout.css';
 import { useAuth } from '../contexts/AuthContext';
-import { AuthService } from '../services/auth.service';
 
 export const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { signUp } = useAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const user = AuthService.signUp(email, password);
-      login(user);
+      signUp(email, password);
       navigate('/');
     } catch (err) {
       setError((err as Error).message);
@@ -71,8 +69,7 @@ export const SignUp = () => {
           </Link>
         </p>
       </div>
-
-      {/*{error && <Notification message={error} />}*/}
+      {error && <p>error</p>}
     </AuthLayout>
   );
 };
