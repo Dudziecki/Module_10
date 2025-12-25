@@ -1,10 +1,8 @@
-import { SVGProps } from 'react';
-
-interface IconExampleProps extends SVGProps<SVGSVGElement> {
+type IconExampleProps = {
   color?: string;
   width?: string | number;
   height?: string | number;
-}
+};
 
 export const PasswordIcon: React.FC<IconExampleProps> = ({
   color = 'var(--text-color)',
