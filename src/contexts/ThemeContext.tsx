@@ -15,11 +15,13 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-interface ThemeProviderProps {
+type ThemeProviderPropsType = {
   children: ReactNode;
-}
+};
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+export const ThemeProvider: React.FC<ThemeProviderPropsType> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem('theme');
     return (savedTheme as Theme) || 'light';
@@ -27,7 +29,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    document.body.className = theme;
+    document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
