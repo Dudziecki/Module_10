@@ -1,5 +1,5 @@
-import React from 'react';
-import './Form.css';
+import React from "react";
+import "./Form.css";
 
 type FormPropsType = {
   title: string;
@@ -14,7 +14,7 @@ export const Form: React.FC<FormPropsType> = ({
   subtitle,
   onSubmit,
   children,
-  className = '',
+  className = "",
 }) => {
   return (
     <form onSubmit={onSubmit} className={`auth-form ${className}`}>

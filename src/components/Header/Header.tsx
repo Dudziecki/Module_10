@@ -1,8 +1,8 @@
-import { useAuth } from '../../contexts/AuthContext';
-import { Link, useLocation } from 'react-router';
-import { SideKickLogo } from '../../assets/icons/SideKickLogo';
-import './Header.css';
-import { useEffect, useState } from 'react';
+import { useAuth } from "../../contexts/AuthContext";
+import { Link, useLocation } from "react-router";
+import { SideKickLogo } from "../../assets/icons/SideKickLogo";
+import "./Header.css";
+import React, { useEffect, useState } from "react";
 
 type HeaderPropsType = {
   authShow?: boolean;
@@ -13,21 +13,15 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  user = {
-    name: 'Mike',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVgPimc_RQYYbUhV3A_xER8GPifFju7nveLA&s',
-  };
-
   const isAuthPage =
-    location.pathname === '/signin' || location.pathname === '/signup';
+    location.pathname === "/signin" || location.pathname === "/signup";
   const showRightSection = authShow && !isAuthPage;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
+    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
   return (
@@ -41,7 +35,7 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
         {showRightSection && (
           <>
             <button
-              className={`burger-button ${isMenuOpen ? 'open' : ''}`}
+              className={`burger-button ${isMenuOpen ? "open" : ""}`}
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -53,16 +47,40 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
             {isMenuOpen && (
               <div className="header-overlay" onClick={closeMenu}></div>
             )}
+            <div className="header-desktop">
+              {user ? (
+                <div className="header-user-info">
+                  <Link to="/profile" className="header-user-info-link">
+                    <img
+                      src={user.avatar}
+                      className="header-user-avatar"
+                      alt="avatar-image"
+                    />
+                    <span>{user.name}</span>
+                  </Link>
+                </div>
+              ) : (
+                <div className="header-actions">
+                  <Link to="/signup">Sign up</Link>
+                  <Link to="/signin">Sign in</Link>
+                </div>
+              )}
+            </div>
 
-            <nav className={`header-right ${isMenuOpen ? 'mobile-open' : ''}`}>
+            <nav className={`header-right ${isMenuOpen ? "mobile-open" : ""}`}>
               <div className="header-mobile-top">
                 <div className="header-logo">
                   <SideKickLogo width={15} height={15} />
                   <span className="header-logo-text">sidekick</span>
                 </div>
+
                 {user && (
                   <div className="header-user-info">
-                    <img src={user.avatar} className="header-user-avatar" />
+                    <img
+                      src={user.avatar}
+                      className="header-user-avatar"
+                      alt="avatar-image"
+                    />
                     <span>{user.name}</span>
                   </div>
                 )}
@@ -85,20 +103,12 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
                 ) : (
                   <>
                     <li>
-                      <Link
-                        to="/signup"
-                        className="header-link"
-                        onClick={closeMenu}
-                      >
+                      <Link to="/signup" onClick={closeMenu}>
                         Sign up
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/signin"
-                        className="header-link"
-                        onClick={closeMenu}
-                      >
+                      <Link to="/signin" onClick={closeMenu}>
                         Sign in
                       </Link>
                     </li>

@@ -1,3 +1,5 @@
+import React from "react";
+
 type IconExampleProps = {
   color?: string;
   width?: string | number;
@@ -5,7 +7,7 @@ type IconExampleProps = {
 };
 
 export const SideKickLogo: React.FC<IconExampleProps> = ({
-  color = 'var(--primary-color)',
+  color = "var(--primary-color)",
   width = 20,
   height = 28,
 

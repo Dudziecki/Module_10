@@ -1,12 +1,12 @@
-import { User } from './types/auth.types';
-import { DEFAULT_USER } from '../lib/constants/userDefaults';
+import { User } from "./types/auth.types";
+import { DEFAULT_USER } from "../lib/constants/constants";
 
-const USERS_KEY = 'users';
-const CURRENT_USER_KEY = 'currentUser';
+const USERS_KEY = "users";
+const CURRENT_USER_KEY = "currentUser";
 
 export const AuthService = {
   getUsers(): User[] {
-    return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+    return JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
   },
 
   saveUsers(users: User[]) {
@@ -18,7 +18,7 @@ export const AuthService = {
 
     const exists = users.find((u) => u.email === email);
     if (exists) {
-      throw new Error('User already exists');
+      throw new Error("User already exists");
     }
 
     const newUser: User = {
@@ -45,7 +45,7 @@ export const AuthService = {
     );
 
     if (!user) {
-      throw new Error('Invalid email or password');
+      throw new Error("Invalid email or password");
     }
 
     localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
@@ -53,7 +53,7 @@ export const AuthService = {
   },
 
   getCurrentUser(): User | null {
-    return JSON.parse(localStorage.getItem(CURRENT_USER_KEY) || 'null');
+    return JSON.parse(localStorage.getItem(CURRENT_USER_KEY) || "null");
   },
 
   logout() {

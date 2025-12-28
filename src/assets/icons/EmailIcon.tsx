@@ -1,3 +1,5 @@
+import React from "react";
+
 type IconExampleProps = {
   color?: string;
   width?: string | number;
@@ -5,7 +7,7 @@ type IconExampleProps = {
 };
 
 export const EmailIcon: React.FC<IconExampleProps> = ({
-  color = 'var(--text-color)',
+  color = "var(--text-color)",
   width = 20,
   height = 28,
   ...rest

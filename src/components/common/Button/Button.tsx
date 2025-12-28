@@ -1,9 +1,9 @@
-import React from 'react';
-import './Button.css';
+import React from "react";
+import "./Button.css";
 
 type ButtonPropsType = {
   children: React.ReactNode;
-  type?: 'submit' | 'button' | 'reset';
+  type?: "submit" | "button" | "reset";
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
@@ -11,9 +11,9 @@ type ButtonPropsType = {
 
 export const Button: React.FC<ButtonPropsType> = ({
   children,
-  type = 'button',
+  type = "button",
   onClick,
-  className = '',
+  className = "",
   disabled,
 }) => {
   return (

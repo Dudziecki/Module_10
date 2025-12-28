@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { LikeIcon } from './LikeIcon';
-import './LikeButton.css';
+import React, { useState } from "react";
+import { LikeIcon } from "./LikeIcon";
+import "./LikeButton.css";
 
 type LikeButtonPropsType = {
   count: number;

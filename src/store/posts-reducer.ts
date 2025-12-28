@@ -1,5 +1,5 @@
-import { DEFAULT_USER } from '../lib/constants/constants';
-import { IAuthor, IComment } from '../components/Post/types';
+import { DEFAULT_USER } from "../lib/constants/constants";
+import { IAuthor, IComment } from "../components/Post/types";
 
 export interface IPost {
   id: number;
@@ -18,11 +18,11 @@ export const postsReducer = (
   action: Actions,
 ): IPost[] => {
   switch (action.type) {
-    case 'add_post': {
+    case "add_post": {
       const newPost: IPost = {
         id: state.length + 1,
         author: DEFAULT_USER,
-        createdAt: 'just now',
+        createdAt: "just now",
         description: action.payload.description,
         image: action.payload.image,
         likesCount: 0,
@@ -39,7 +39,7 @@ export const postsReducer = (
 
 export const addPostAC = (payload: { description: string; image?: string }) =>
   ({
-    type: 'add_post',
+    type: "add_post",
     payload,
   }) as const;
 

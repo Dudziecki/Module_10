@@ -1,5 +1,5 @@
-import React, { FC, ReactNode } from 'react';
-import './Footer.css';
+import React, { FC, ReactNode } from "react";
+import "./Footer.css";
 
 type FooterPropsType = {
   children: ReactNode;

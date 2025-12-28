@@ -1,14 +1,14 @@
-import React from 'react';
-import { Navigate, Route, Routes } from 'react-router';
-import { useAuth } from './contexts/AuthContext';
+import React from "react";
+import { Navigate, Route, Routes } from "react-router";
+import { useAuth } from "./contexts/AuthContext";
 
-import { Home } from './pages/Home';
-import { SignUp } from './pages/SignUp';
-import { PageNotFound } from './pages/PageNotFound';
-import { SignIn } from './pages/SignIn';
-import { Profile } from './pages/Profile';
+import { Home } from "./pages/Home";
+import { SignUp } from "./pages/SignUp";
+import { PageNotFound } from "./pages/PageNotFound";
+import { SignIn } from "./pages/SignIn";
+import { Profile } from "./pages/Profile";
 
-import './App.css';
+import "./App.css";
 
 export const RouterSetup: React.FC = () => {
   const { user } = useAuth();

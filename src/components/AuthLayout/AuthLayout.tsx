@@ -1,11 +1,11 @@
-import React from 'react';
-import './AuthLayout.css';
+import React from "react";
+import "./AuthLayout.css";
 
-interface Props {
+type AuthLayoutPropsType = {
   children: React.ReactNode;
-}
+};
 
-export const AuthLayout: React.FC<Props> = ({ children }) => {
+export const AuthLayout: React.FC<AuthLayoutPropsType> = ({ children }) => {
   return (
     <div className="auth-page">
       <section className="auth-form-content">{children}</section>

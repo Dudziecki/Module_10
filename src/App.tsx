@@ -1,10 +1,10 @@
-import React from 'react';
-import './App.css';
-import { Footer } from './components/Footer/Footer';
-import { Header } from './components/Header/Header';
-import { ThemeProvider } from './contexts/ThemeContext';
-import { AuthProvider } from './contexts/AuthContext';
-import { RouterSetup } from './RouterSetup';
+import React from "react";
+import "./App.css";
+import { Footer } from "./components/Footer/Footer";
+import { Header } from "./components/Header/Header";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import { RouterSetup } from "./RouterSetup";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Header />
           <RouterSetup />
 
-          <Footer text={'© 2024 sidekick'} />
+          <Footer>© 2024 sidekick</Footer>
         </div>
       </AuthProvider>
     </ThemeProvider>

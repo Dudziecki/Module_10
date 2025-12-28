@@ -1,5 +1,5 @@
-import React from 'react';
-import './Input.css';
+import React from "react";
+import "./Input.css";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -13,7 +13,7 @@ export const Input: React.FC<Props> = ({
   label,
   icon,
   error,
-  className = '',
+  className = "",
   ...props
 }) => {
   return (
@@ -23,7 +23,7 @@ export const Input: React.FC<Props> = ({
         {label}
       </label>
 
-      <div className={`input-wrapper ${error ? 'has-error' : ''}`}>
+      <div className={`input-wrapper ${error ? "has-error" : ""}`}>
         <input id={id} className="auth-input" {...props} />
       </div>
 

@@ -1,6 +1,6 @@
-import { PageNotFoundIcon } from '../assets/icons/PageNotFoundIcon';
-import './PageNotFound.css';
-import { FC } from 'react';
+import { PageNotFoundIcon } from "../assets/icons/PageNotFoundIcon";
+import "./PageNotFound.css";
+import { FC } from "react";
 
 export const PageNotFound: FC = () => {
   return (

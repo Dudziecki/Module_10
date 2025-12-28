@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
-import { AuthLayout } from '../components/AuthLayout/AuthLayout';
-import { Form } from '../components/common/Form/Form';
-import { Input } from '../components/common/Input/Input';
-import { Button } from '../components/common/Button/Button';
-import { EmailIcon } from '../assets/icons/EmailIcon';
-import { PasswordIcon } from '../assets/icons/PasswordIcon';
-import '../components/AuthLayout/AuthLayout.css';
-import { useAuth } from '../contexts/AuthContext';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthLayout } from "../components/AuthLayout/AuthLayout";
+import { Form } from "../components/common/Form/Form";
+import { Input } from "../components/common/Input/Input";
+import { Button } from "../components/common/Button/Button";
+import { EmailIcon } from "../assets/icons/EmailIcon";
+import { PasswordIcon } from "../assets/icons/PasswordIcon";
+import "../components/AuthLayout/AuthLayout.css";
+import { useAuth } from "../contexts/AuthContext";
 
 export const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const { signUp } = useAuth();
@@ -20,7 +20,7 @@ export const SignUp = () => {
     e.preventDefault();
     try {
       signUp(email, password);
-      navigate('/');
+      navigate("/");
     } catch (err) {
       setError((err as Error).message);
     }
@@ -64,7 +64,7 @@ export const SignUp = () => {
         <p>
           Already have an account?
           <Link to="/signin" className="helper-link">
-            {' '}
+            {" "}
             Sign in
           </Link>
         </p>

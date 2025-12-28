@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Button } from '../components/common/Button/Button';
-import './Profile.css';
-import { Switcher } from '../components/common/Switcher/Switcher';
-import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router';
-import { useTheme } from '../contexts/ThemeContext';
+import React, { useState } from "react";
+import { Button } from "../components/common/Button/Button";
+import "./Profile.css";
+import { Switcher } from "../components/common/Switcher/Switcher";
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router";
+import { useTheme } from "../contexts/ThemeContext";
 
 export const Profile: React.FC = () => {
   const [isStatistics, setIsStatistics] = useState(false);
@@ -15,7 +15,7 @@ export const Profile: React.FC = () => {
   const handleLogout = () => {
     try {
       logout();
-      navigate('/');
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -25,13 +25,13 @@ export const Profile: React.FC = () => {
     <section className="profile-container">
       <div className="profile-buttons">
         <button
-          className={`profile-button ${!isStatistics ? 'active' : ''}`}
+          className={`profile-button ${!isStatistics ? "active" : ""}`}
           onClick={() => setIsStatistics(false)}
         >
           Profile Info
         </button>
         <button
-          className={`profile-button ${isStatistics ? 'active' : ''}`}
+          className={`profile-button ${isStatistics ? "active" : ""}`}
           onClick={() => setIsStatistics(true)}
         >
           Statistics

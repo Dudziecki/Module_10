@@ -1,12 +1,12 @@
-import React, { FC, useRef, useState } from 'react';
-import { Input } from '../common/Input/Input';
-import { EmailIcon } from '../../assets/icons/EmailIcon';
-import { PencilIcon } from '../../assets/icons/PencilIcon';
-import { UploadIcon } from '../../assets/icons/UploadIcon';
-import { Button } from '../common/Button/Button';
-import { Modal } from '../common/Modal/Modal';
-import './CreatePostModal.css';
-import { ALLOWED_TYPES } from '../../lib/constants/userDefaults';
+import React, { FC, useRef, useState } from "react";
+import { Input } from "../common/Input/Input";
+import { EmailIcon } from "../../assets/icons/EmailIcon";
+import { PencilIcon } from "../../assets/icons/PencilIcon";
+import { UploadIcon } from "../../assets/icons/UploadIcon";
+import { Button } from "../common/Button/Button";
+import { Modal } from "../common/Modal/Modal";
+import "./CreatePostModal.css";
+import { ALLOWED_TYPES } from "../../lib/constants/constants";
 
 type CreatePostModalPropsType = {
   isOpen: boolean;
@@ -19,7 +19,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
   onClose,
   onCreate,
 }) => {
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -31,7 +31,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
       image: file ? URL.createObjectURL(file) : undefined,
     });
 
-    setDescription('');
+    setDescription("");
     setFile(null);
   };
 
@@ -42,7 +42,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
     if (!droppedFile) return;
 
     if (!ALLOWED_TYPES.includes(droppedFile.type)) {
-      alert('Invalid file format');
+      alert("Invalid file format");
       return;
     }
 
@@ -51,7 +51,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
 
   const handleFileSelect = (file: File) => {
     if (!ALLOWED_TYPES.includes(file.type)) {
-      alert('Invalid file format');
+      alert("Invalid file format");
       return;
     }
 
@@ -100,7 +100,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
           <UploadIcon />
 
           <div className="post-form-upload-text">
-            <p>{file ? file.name : 'Select a file or drag and drop here'}</p>
+            <p>{file ? file.name : "Select a file or drag and drop here"}</p>
             <small>JPG, PNG or PDF, max 10MB</small>
 
             <input
