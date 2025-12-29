@@ -1,6 +1,6 @@
-import React, { FC, ReactNode, useEffect } from 'react';
-import './Modal.css';
-import { CrossIcon } from '../../../assets/icons/CrossIcon';
+import React, { FC, ReactNode, useEffect } from "react";
+import "./Modal.css";
+import { CrossIcon } from "../../../assets/icons/CrossIcon";
 
 type ModalPropsType = {
   isOpen: boolean;
@@ -19,11 +19,11 @@ export const Modal: FC<ModalPropsType> = ({
 }) => {
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
