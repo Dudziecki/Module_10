@@ -1,30 +1,30 @@
 import React, { useReducer, useState } from "react";
-import { Post } from "../components/Post/Post";
-import { NewPostSection } from "../components/NewPostSection/NewPostSection";
-import { SuggestedPeopleSection } from "../components/SuggestedPeopleSection/SuggestedPeopleSection";
-import { SuggestedCommunities } from "../components/SuggestedCommunities/SuggestedCommunities";
+import { Post } from "../../components/Post/Post";
+import { NewPostSection } from "../../components/NewPostSection/NewPostSection";
+import { SuggestedPeopleSection } from "../../components/SuggestedPeopleSection/SuggestedPeopleSection";
+import { SuggestedCommunities } from "../../components/SuggestedCommunities/SuggestedCommunities";
 import "./Home.css";
-import { CreatePostModal } from "../components/CreatePostModal/CreatePostModal";
-import { addPostAC, postsReducer } from "../store/posts-reducer";
-import { useAuth } from "../contexts/AuthContext";
+import { CreatePostModal } from "../../components/CreatePostModal/CreatePostModal";
+import { addPostAC, postsReducer } from "../../store/posts-reducer";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const Home = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [posts, dispatch] = useReducer(postsReducer, []);
   const { user } = useAuth();
 
-  const handleCreatePost = (data: { description: string; image?: string }) => {
+  function handleCreatePost(data: { description: string; image?: string }) {
     dispatch(addPostAC(data));
     setIsCreateModalOpen(false);
-  };
+  }
 
-  const openCreatePostModal = () => {
+  function openCreatePostModal() {
     setIsCreateModalOpen(true);
-  };
+  }
 
-  const closeCreatePostModal = () => {
+  function closeCreatePostModal() {
     setIsCreateModalOpen(false);
-  };
+  }
   return (
     <div className="home">
       <section className="home__feed">

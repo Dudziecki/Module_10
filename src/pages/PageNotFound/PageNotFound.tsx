@@ -1,4 +1,4 @@
-import { PageNotFoundIcon } from "../assets/icons/PageNotFoundIcon";
+import { PageNotFoundIcon } from "../../assets/icons/PageNotFoundIcon";
 import "./PageNotFound.css";
 import { FC } from "react";
 

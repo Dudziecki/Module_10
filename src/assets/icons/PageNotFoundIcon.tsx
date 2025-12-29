@@ -8,8 +8,6 @@ export const PageNotFoundIcon: React.FC<IconPropsType> = ({
   color = "var(--text-color)",
   width = 20,
   height = 28,
-
-  ...rest
 }) => {
   return (
     <svg

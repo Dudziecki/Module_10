@@ -1,3 +1,5 @@
+import React from "react";
+
 type IconExampleProps = {
   color?: string;
   width?: string | number;
@@ -8,7 +10,6 @@ export const PasswordIcon: React.FC<IconExampleProps> = ({
   color = "var(--text-color)",
   width = 20,
   height = 28,
-  ...rest
 }) => {
   return (
     <svg

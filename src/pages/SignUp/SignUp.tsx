@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { AuthLayout } from "../components/AuthLayout/AuthLayout";
-import { Form } from "../components/common/Form/Form";
-import { Input } from "../components/common/Input/Input";
-import { Button } from "../components/common/Button/Button";
-import { EmailIcon } from "../assets/icons/EmailIcon";
-import { PasswordIcon } from "../assets/icons/PasswordIcon";
-import { useAuth } from "../contexts/AuthContext";
+import { AuthLayout } from "../../components/AuthLayout/AuthLayout";
+import { Form } from "../../components/common/Form/Form";
+import { Input } from "../../components/common/Input/Input";
+import { Button } from "../../components/common/Button/Button";
+import { EmailIcon } from "../../assets/icons/EmailIcon";
+import { PasswordIcon } from "../../assets/icons/PasswordIcon";
+import "../../components/AuthLayout/AuthLayout.css";
+import { useAuth } from "../../contexts/AuthContext";
 
-export const SignIn = () => {
+export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { signUp } = useAuth();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      login(email, password);
+      signUp(email, password);
       navigate("/");
     } catch (err) {
       setError((err as Error).message);
@@ -28,8 +29,8 @@ export const SignIn = () => {
   return (
     <AuthLayout>
       <Form
-        title="Sign in into an account"
-        subtitle="Enter your email and password to sign in into this app"
+        title="Create an account"
+        subtitle="Enter your email and password to sign up into this app"
         onSubmit={handleSubmit}
       >
         <Input
@@ -52,15 +53,19 @@ export const SignIn = () => {
           icon={<PasswordIcon />}
         />
 
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">Sign Up</Button>
       </Form>
 
       <div className="terms-container">
+        <p className="terms-text">
+          By clicking continue, you agree to our
+          <span> Terms of Service</span> and <span>Privacy</span>
+        </p>
         <p>
-          Forgot to create an account?
-          <Link to="/signup" className="helper-link">
+          Already have an account?
+          <Link to="/signin" className="helper-link">
             {" "}
-            Sign up
+            Sign in
           </Link>
         </p>
       </div>

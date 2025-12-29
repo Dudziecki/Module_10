@@ -1,6 +1,7 @@
 import { useTheme } from "../../contexts/ThemeContext";
+import React from "react";
 
-export const UploadIcon = () => {
+export const UploadIcon: React.FC = () => {
   const { theme } = useTheme();
   return (
     <svg

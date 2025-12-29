@@ -23,7 +23,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     onCreate({
@@ -33,9 +33,9 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
 
     setDescription("");
     setFile(null);
-  };
+  }
 
-  const handleDrop = (e: React.DragEvent) => {
+  function handleDrop(e: React.DragEvent) {
     e.preventDefault();
 
     const droppedFile = e.dataTransfer.files[0];
@@ -47,23 +47,23 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
     }
 
     setFile(droppedFile);
-  };
+  }
 
-  const handleFileSelect = (file: File) => {
+  function handleFileSelect(file: File) {
     if (!ALLOWED_TYPES.includes(file.type)) {
       alert("Invalid file format");
       return;
     }
 
     setFile(file);
-  };
+  }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
 
     handleFileSelect(selectedFile);
-  };
+  }
 
   return (
     <Modal title="Create a new post" isOpen={isOpen} onClose={onClose}>

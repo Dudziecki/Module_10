@@ -17,8 +17,13 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
     location.pathname === "/signin" || location.pathname === "/signup";
   const showRightSection = authShow && !isAuthPage;
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";

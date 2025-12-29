@@ -1,10 +1,11 @@
 import { useTheme } from "../../contexts/ThemeContext";
+import React from "react";
 
 type TrashIconProps = {
   onClick: () => void;
 };
 
-export const TrashIcon = ({ onClick }: TrashIconProps) => {
+export const TrashIcon: React.FC<TrashIconProps> = ({ onClick }) => {
   const { theme } = useTheme();
   return (
     <svg

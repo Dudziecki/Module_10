@@ -9,7 +9,7 @@ export const CommentForm: React.FC<{ onAdd: (text: string) => void }> = ({
   const [text, setText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!text.trim() || isSubmitting) return;
 
@@ -23,13 +23,13 @@ export const CommentForm: React.FC<{ onAdd: (text: string) => void }> = ({
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  function handleKeyDown(e: React.KeyboardEvent) {
     if (e.key === "Enter" && e.ctrlKey) {
       handleSubmit(e);
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit} className="comment-form">

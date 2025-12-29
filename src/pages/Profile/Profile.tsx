@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Button } from "../components/common/Button/Button";
+import { Button } from "../../components/common/Button/Button";
 import "./Profile.css";
-import { Switcher } from "../components/common/Switcher/Switcher";
-import { useAuth } from "../contexts/AuthContext";
+import { Switcher } from "../../components/common/Switcher/Switcher";
+import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export const Profile: React.FC = () => {
   const [isStatistics, setIsStatistics] = useState(false);
