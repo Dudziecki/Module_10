@@ -1,18 +1,18 @@
 import React, { useReducer, useState } from "react";
-import { IAuthor, IComment } from "./types";
-import { PostHeader } from "./PostHeader/PostHeader";
-import { LikeButton } from "./LikeButton/LikeButton";
-import { PostContent } from "./PostContent/PostContent";
+import { IAuthor, IComment } from "../types";
+import { PostHeader } from "../PostHeader/PostHeader";
+import { LikeButton } from "../LikeButton/LikeButton";
+import { PostContent } from "../PostContent/PostContent";
 import "./Post.css";
-import { MessageIcon } from "../../assets/icons/MessageIcon";
-import { ShowCommentIcon } from "../../assets/icons/ShowCommentIcon";
-import { CommentItem } from "./CommentItem/CommentItem";
-import { CommentForm } from "./CommentForm/CommentForm";
+import { MessageIcon } from "../../../assets/icons/MessageIcon";
+import { ShowCommentIcon } from "../../../assets/icons/ShowCommentIcon";
+import { CommentItem } from "../CommentItem/CommentItem";
+import { CommentForm } from "../CommentForm/CommentForm";
 import {
   addCommentAC,
   commentsReducer,
   deleteCommentAC,
-} from "../../store/comments-reducer";
+} from "../../../store/comments-reducer";
 
 type PostPropsType = {
   author: IAuthor;

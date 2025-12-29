@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import { Post } from "../../components/Post/Post";
+import { Post } from "../../components/Post/PostComponent/Post";
 import { NewPostSection } from "../../components/NewPostSection/NewPostSection";
 import { SuggestedPeopleSection } from "../../components/SuggestedPeopleSection/SuggestedPeopleSection";
 import { SuggestedCommunities } from "../../components/SuggestedCommunities/SuggestedCommunities";
@@ -7,6 +7,7 @@ import "./Home.css";
 import { CreatePostModal } from "../../components/CreatePostModal/CreatePostModal";
 import { addPostAC, postsReducer } from "../../store/posts-reducer";
 import { useAuth } from "../../contexts/AuthContext";
+import picture from "../../assets/flowers.png";
 
 export const Home = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -27,7 +28,7 @@ export const Home = () => {
   }
   return (
     <div className="home">
-      <section className="home__feed">
+      <section className="home-feed">
         {user && <NewPostSection onAddPost={openCreatePostModal} />}
         {posts.map((post) => (
           <Post key={post.id} {...post} isLoggedIn />
@@ -38,6 +39,7 @@ export const Home = () => {
           description="ffff"
           likesCount={2}
           comments={[{ id: 1, text: "string" }]}
+          image={picture}
           isLoggedIn
         />
 
