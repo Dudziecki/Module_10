@@ -1,0 +1,39 @@
+.comment-form-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.comment-form-textarea {
+    height: 58px;
+    width: 658px;
+    resize: none;
+    outline: none;
+    background-color: var(--form-bg-color);
+    border: 2px solid var(--border-color);
+    color: var(--small-text-color);
+    padding-left: 14px;
+    padding-top: 14px;
+}
+
+.comment-form-textarea::placeholder {
+    color: var(--small-text-color);
+}
+
+.comment-form-footer .comment-form-submit-btn {
+    margin-top: 16px;
+    width: 30%;
+}
+
+@media (max-width: 730px) {
+    .comment-form-textarea {
+        height: 58px;
+        max-width: 458px;
+        width: 100%;
+    }
+
+    .comment-form-footer .comment-form-submit-btn {
+        width: 43%;
+    }
+}
