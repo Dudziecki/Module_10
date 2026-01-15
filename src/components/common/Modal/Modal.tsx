@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from "react";
+import React, { ReactNode, MouseEvent } from "react";
 import "./Modal.css";
 import { CrossIcon } from "../../../assets/icons/CrossIcon";
 
@@ -10,28 +10,22 @@ type ModalPropsType = {
   footer?: ReactNode;
 };
 
-export const Modal: FC<ModalPropsType> = ({
+export const Modal = ({
   isOpen,
   title,
   onClose,
   children,
   footer,
-}) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
+}: ModalPropsType) => {
+  function handleModalClick(e: MouseEvent<HTMLDialogElement>) {
+    e.stopPropagation();
+  }
 
   if (!isOpen) return null;
 
   return (
     <section className="modal-overlay" onClick={onClose}>
-      <dialog className="modal" open onClick={(e) => e.stopPropagation()}>
+      <dialog className="modal" open onClick={handleModalClick}>
         {title && (
           <header className="modal-header">
             <h3>{title}</h3>
