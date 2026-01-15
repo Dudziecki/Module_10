@@ -1,16 +1,11 @@
 import React from "react";
+import { IconProps } from "./icon.types";
 
-type IconExampleProps = {
-  color?: string;
-  width?: string | number;
-  height?: string | number;
-};
-
-export const EmailIcon: React.FC<IconExampleProps> = ({
+export const EmailIcon = ({
   color = "var(--text-color)",
   width = 20,
   height = 28,
-}) => {
+}: IconProps) => {
   return (
     <svg
       width="16"

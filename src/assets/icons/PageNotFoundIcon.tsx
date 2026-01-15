@@ -1,14 +1,10 @@
-type IconPropsType = {
-  color?: string;
-  width?: string | number;
-  height?: string | number;
-};
+import { IconProps } from "./icon.types";
 
-export const PageNotFoundIcon: React.FC<IconPropsType> = ({
+export const PageNotFoundIcon = ({
   color = "var(--text-color)",
   width = 20,
   height = 28,
-}) => {
+}: IconProps) => {
   return (
     <svg
       width="180"

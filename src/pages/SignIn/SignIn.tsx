@@ -15,6 +15,7 @@ export const SignIn = () => {
 
   const navigate = useNavigate();
   const { login } = useAuth();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     try {

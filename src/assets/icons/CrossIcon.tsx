@@ -1,11 +1,7 @@
-import { FC } from "react";
 import { useTheme } from "../../contexts/ThemeContext";
+import { IconProps } from "./icon.types";
 
-type CrossIconProps = {
-  onClick: () => void;
-};
-
-export const CrossIcon: FC<CrossIconProps> = ({ onClick }) => {
+export const CrossIcon = ({ onClick }: IconProps) => {
   const { theme } = useTheme();
   return (
     <svg

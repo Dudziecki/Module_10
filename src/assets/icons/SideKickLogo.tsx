@@ -1,18 +1,12 @@
 import React from "react";
+import { IconProps } from "./icon.types";
 
-type IconExampleProps = {
-  color?: string;
-  width?: string | number;
-  height?: string | number;
-};
-
-export const SideKickLogo: React.FC<IconExampleProps> = ({
+export const SideKickLogo = ({
   color = "var(--primary-color)",
   width = 20,
   height = 28,
-
   ...rest
-}) => {
+}: IconProps) => {
   return (
     <svg
       width={width}

@@ -1,7 +1,7 @@
 import { useTheme } from "../../contexts/ThemeContext";
 import React from "react";
 
-export const MessageIcon: React.FC = () => {
+export const MessageIcon = () => {
   const { theme } = useTheme();
   return (
     <svg

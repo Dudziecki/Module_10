@@ -6,10 +6,10 @@ type ShowCommentIconProps = {
   onClick?: () => void;
 };
 
-export const ShowCommentIcon: React.FC<ShowCommentIconProps> = ({
+export const ShowCommentIcon = ({
   shouldShowComments,
   onClick,
-}) => {
+}: ShowCommentIconProps) => {
   const { theme } = useTheme();
   return (
     <svg
