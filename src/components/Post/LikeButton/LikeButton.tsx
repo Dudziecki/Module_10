@@ -19,7 +19,7 @@ export const LikeButton: React.FC<LikeButtonPropsType> = ({ count }) => {
       className="like-button"
     >
       <LikeIcon isLiked={isLiked} />
-      <span>{likes} likes</span>
+      <span className="likes-count">{likes} likes</span>
     </button>
   );
 };
