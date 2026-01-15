@@ -11,3 +11,9 @@
   border-radius: 0.25rem;
   transition: all 0.2s ease;
 }
+
+@media (max-width: 350px) {
+  .like-button{
+    font-size: 12px;
+  }
+}

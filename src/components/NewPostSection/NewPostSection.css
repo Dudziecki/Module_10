@@ -42,3 +42,10 @@
     border-bottom: 0;
   }
 }
+
+@media (max-width: 360px) {
+  .new-post-button{
+
+    font-size: 10px;
+  }
+}

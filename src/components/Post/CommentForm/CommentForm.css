@@ -37,3 +37,16 @@
     width: 43%;
   }
 }
+
+@media (max-width: 360px) {
+  .comment-form-textarea{
+    max-width: 232px;
+    width: 100%;
+  }
+
+  .comment-form-footer .comment-form-submit-btn {
+    width:63%;
+  }
+}
+
+

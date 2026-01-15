@@ -25,3 +25,9 @@
   align-items: center;
   gap: 8px;
 }
+
+@media (max-width: 360px) {
+  .post{
+    padding: 16px;
+  }
+}

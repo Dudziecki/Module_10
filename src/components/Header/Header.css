@@ -19,11 +19,11 @@
   color: var(--text-color);
 }
 
-.header-logo-text {
+.header-mobile-logo-text {
   font-size: 1.25rem;
   font-weight: 400;
   white-space: nowrap;
-  color: var(--text-color);
+  color:var(--text-color);
 }
 
 .header-right {
@@ -148,7 +148,7 @@
     align-items: center;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -120%;
     width: 293px;
     height: 100vh;
     background-color: var(--bg-secondary-color);
@@ -178,7 +178,7 @@
 
   .header-mobile-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 12px 0;
     width: 100%;
