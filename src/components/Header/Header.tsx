@@ -3,12 +3,13 @@ import { Link, useLocation } from "react-router";
 import { SideKickLogo } from "../../assets/icons/SideKickLogo";
 import "./Header.css";
 import React, { useEffect, useState } from "react";
+import { BurgerIcon } from "../../assets/icons/BurgerIcon";
 
 type HeaderPropsType = {
   authShow?: boolean;
 };
 
-export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
+export const Header = ({ authShow = true }: HeaderPropsType) => {
   let { user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -44,9 +45,7 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
-              <span></span>
-              <span></span>
-              <span></span>
+              <BurgerIcon size={30} />
             </button>
 
             {isMenuOpen && (
@@ -76,7 +75,7 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
               <div className="header-mobile-top">
                 <div className="header-logo">
                   <SideKickLogo width={15} height={15} />
-                  <span className="header-logo-text">sidekick</span>
+                  <span className="header-mobile-logo-text">sidekick</span>
                 </div>
 
                 {user && (
@@ -86,7 +85,6 @@ export const Header: React.FC<HeaderPropsType> = ({ authShow = true }) => {
                       className="header-user-avatar"
                       alt="avatar-image"
                     />
-                    <span>{user.name}</span>
                   </div>
                 )}
               </div>
