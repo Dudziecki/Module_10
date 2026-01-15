@@ -1,4 +1,10 @@
-import React, { FC, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  DragEvent,
+  FormEvent,
+  useRef,
+  useState,
+} from "react";
 import { Input } from "../common/Input/Input";
 import { EmailIcon } from "../../assets/icons/EmailIcon";
 import { PencilIcon } from "../../assets/icons/PencilIcon";
@@ -14,16 +20,16 @@ type CreatePostModalPropsType = {
   onCreate: (data: { description: string; image?: string }) => void;
 };
 
-export const CreatePostModal: FC<CreatePostModalPropsType> = ({
+export const CreatePostModal = ({
   isOpen,
   onClose,
   onCreate,
-}) => {
+}: CreatePostModalPropsType) => {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
     onCreate({
@@ -35,7 +41,7 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
     setFile(null);
   }
 
-  function handleDrop(e: React.DragEvent) {
+  function handleDrop(e: DragEvent) {
     e.preventDefault();
 
     const droppedFile = e.dataTransfer.files[0];
@@ -58,11 +64,23 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
     setFile(file);
   }
 
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
 
     handleFileSelect(selectedFile);
+  }
+
+  function handleDescriptionChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    setDescription(e.target.value);
+  }
+
+  function handleUploadAreaClick() {
+    fileInputRef.current?.click();
+  }
+
+  function handleDragOver(e: DragEvent<HTMLElement>) {
+    e.preventDefault();
   }
 
   return (
@@ -87,14 +105,14 @@ export const CreatePostModal: FC<CreatePostModalPropsType> = ({
             className="post-form-textarea"
             placeholder="Write description here..."
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={handleDescriptionChange}
           />
         </fieldset>
 
         <section
           className="post-form-upload"
-          onClick={() => fileInputRef.current?.click()}
-          onDragOver={(e) => e.preventDefault()}
+          onClick={handleUploadAreaClick}
+          onDragOver={handleDragOver}
           onDrop={handleDrop}
         >
           <UploadIcon />

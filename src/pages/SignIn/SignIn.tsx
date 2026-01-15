@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthLayout } from "../../components/AuthLayout/AuthLayout";
 import { Form } from "../../components/common/Form/Form";
@@ -16,7 +16,7 @@ export const SignIn = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     try {
       login(email, password);
@@ -24,7 +24,15 @@ export const SignIn = () => {
     } catch (err) {
       setError((err as Error).message);
     }
-  };
+  }
+
+  function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e: ChangeEvent<HTMLInputElement>) {
+    setPassword(e.target.value);
+  }
 
   return (
     <AuthLayout>
@@ -38,7 +46,7 @@ export const SignIn = () => {
           label="Email"
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleEmailChange}
           placeholder="Enter email"
           icon={<EmailIcon />}
         />
@@ -48,7 +56,7 @@ export const SignIn = () => {
           label="Password"
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handlePasswordChange}
           placeholder="Enter password"
           icon={<PasswordIcon />}
         />

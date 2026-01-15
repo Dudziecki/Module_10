@@ -1,8 +1,7 @@
 import { PageNotFoundIcon } from "../../assets/icons/PageNotFoundIcon";
 import "./PageNotFound.css";
-import { FC } from "react";
 
-export const PageNotFound: FC = () => {
+export const PageNotFound = () => {
   return (
     <section className="page-not-found">
       <div className="wrapper">

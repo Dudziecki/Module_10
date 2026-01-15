@@ -5,7 +5,7 @@ type SwitcherPropsType = {
   onClick: () => void;
 };
 
-export const Switcher: FC<SwitcherPropsType> = ({ onClick }) => {
+export const Switcher = ({ onClick }: SwitcherPropsType) => {
   const [isActive, setIsActive] = useState(false);
 
   function handleSwitch() {

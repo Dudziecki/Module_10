@@ -9,13 +9,13 @@ type ButtonPropsType = {
   disabled?: boolean;
 };
 
-export const Button: React.FC<ButtonPropsType> = ({
+export const Button = ({
   children,
   type = "button",
   onClick,
   className = "",
   disabled,
-}) => {
+}: ButtonPropsType) => {
   return (
     <button
       type={type}

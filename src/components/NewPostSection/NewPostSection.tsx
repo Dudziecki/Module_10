@@ -7,9 +7,7 @@ type NewPostSectionPropsType = {
   onAddPost?: () => void;
 };
 
-export const NewPostSection: React.FC<NewPostSectionPropsType> = ({
-  onAddPost,
-}) => {
+export const NewPostSection = ({ onAddPost }: NewPostSectionPropsType) => {
   return (
     <article className="new-post-section">
       <div className="new-post-info">

@@ -5,7 +5,7 @@ type AuthLayoutPropsType = {
   children: React.ReactNode;
 };
 
-export const AuthLayout: React.FC<AuthLayoutPropsType> = ({ children }) => {
+export const AuthLayout = ({ children }: AuthLayoutPropsType) => {
   return (
     <div className="auth-page">
       <section className="auth-form-content">{children}</section>

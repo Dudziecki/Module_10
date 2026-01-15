@@ -24,7 +24,7 @@ type PostPropsType = {
   isLoggedIn: boolean;
 };
 
-export const Post: React.FC<PostPropsType> = ({
+export const Post = ({
   description,
   image,
   isLoggedIn,
@@ -32,17 +32,21 @@ export const Post: React.FC<PostPropsType> = ({
   likesCount,
   author,
   ...props
-}) => {
+}: PostPropsType) => {
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
   const [comments, dispatch] = useReducer(commentsReducer, props.comments);
 
-  const handleAddComment = (text: string) => {
+  function handleAddComment(text: string) {
     dispatch(addCommentAC(text));
-  };
+  }
 
-  const handleRemoveComment = (id: number) => {
+  function handleRemoveComment(id: number) {
     dispatch(deleteCommentAC(id));
-  };
+  }
+
+  function handleCommentsOpen() {
+    setIsCommentsOpen(!isCommentsOpen);
+  }
 
   return (
     <article className="post">
@@ -55,7 +59,7 @@ export const Post: React.FC<PostPropsType> = ({
           <LikeButton count={likesCount} />
 
           <button
-            onClick={() => setIsCommentsOpen(!isCommentsOpen)}
+            onClick={handleCommentsOpen}
             className="comments-toggle"
             aria-expanded={isCommentsOpen}
             aria-label={`${isCommentsOpen ? "Close" : "Open"} comments`}

@@ -8,10 +8,7 @@ type HeaderPropsType = {
   createdAt: string;
 };
 
-export const PostHeader: React.FC<HeaderPropsType> = ({
-  author,
-  createdAt,
-}) => (
+export const PostHeader = ({ author, createdAt }: HeaderPropsType) => (
   <section className="post-header">
     <img
       src={author.avatar || DEFAULT_USER.avatar}

@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, KeyboardEvent, useState } from "react";
 import "./CommentForm.css";
 import { PencilIcon } from "../../../assets/icons/PencilIcon";
 import { Button } from "../../common/Button/Button";
 
-export const CommentForm: React.FC<{ onAdd: (text: string) => void }> = ({
-  onAdd,
-}) => {
+export type CommentFormProps = {
+  onAdd: (text: string) => void;
+};
+
+export const CommentForm = ({ onAdd }: CommentFormProps) => {
   const [text, setText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!text.trim() || isSubmitting) return;
 
@@ -25,10 +27,14 @@ export const CommentForm: React.FC<{ onAdd: (text: string) => void }> = ({
     }
   }
 
-  function handleKeyDown(e: React.KeyboardEvent) {
+  function handleKeyDown(e:KeyboardEvent) {
     if (e.key === "Enter" && e.ctrlKey) {
       handleSubmit(e);
     }
+  }
+
+  function handleCommentKeyDown(e:ChangeEvent<HTMLTextAreaElement>){
+    setText(e.target.value)
   }
 
   return (
@@ -40,7 +46,7 @@ export const CommentForm: React.FC<{ onAdd: (text: string) => void }> = ({
 
       <textarea
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleCommentKeyDown}
         onKeyDown={handleKeyDown}
         placeholder="Write your comment here..."
         className="comment-form-textarea"

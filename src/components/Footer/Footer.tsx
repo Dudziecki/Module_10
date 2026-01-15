@@ -5,6 +5,6 @@ type FooterPropsType = {
   children: ReactNode;
 };
 
-export const Footer: FC<FooterPropsType> = ({ children }) => {
+export const Footer = ({ children }: FooterPropsType) => {
   return <footer className="footer">{children}</footer>;
 };

@@ -9,13 +9,13 @@ type FormPropsType = {
   className?: string;
 };
 
-export const Form: React.FC<FormPropsType> = ({
+export const Form = ({
   title,
   subtitle,
   onSubmit,
   children,
   className = "",
-}) => {
+}: FormPropsType) => {
   return (
     <form onSubmit={onSubmit} className={`auth-form ${className}`}>
       <div className="form-header">

@@ -6,33 +6,41 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router";
 import { useTheme } from "../../contexts/ThemeContext";
 
-export const Profile: React.FC = () => {
+export const Profile = () => {
   const [isStatistics, setIsStatistics] = useState(false);
   const { logout } = useAuth();
   const navigate = useNavigate();
   const { toggleTheme } = useTheme();
 
-  const handleLogout = () => {
+  function handleLogout() {
     try {
       logout();
       navigate("/");
     } catch (err) {
       console.log(err);
     }
-  };
+  }
+
+  function handleShowProfile() {
+    setIsStatistics(false);
+  }
+
+  function handleShowStatistics() {
+    setIsStatistics(true);
+  }
 
   return (
     <section className="profile-container">
       <div className="profile-buttons">
         <button
           className={`profile-button ${!isStatistics ? "active" : ""}`}
-          onClick={() => setIsStatistics(false)}
+          onClick={handleShowProfile}
         >
           Profile Info
         </button>
         <button
           className={`profile-button ${isStatistics ? "active" : ""}`}
-          onClick={() => setIsStatistics(true)}
+          onClick={handleShowStatistics}
         >
           Statistics
         </button>
