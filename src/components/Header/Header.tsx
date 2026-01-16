@@ -26,9 +26,6 @@ export const Header = ({ authShow = true }: HeaderPropsType) => {
     setIsMenuOpen(false);
   }
 
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
-  }, [isMenuOpen]);
 
   return (
     <header className="header">
