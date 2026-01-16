@@ -1,10 +1,6 @@
-import React, { FC, ReactNode } from "react";
+import React from "react";
 import "./Footer.css";
 
-type FooterPropsType = {
-  children: ReactNode;
-};
-
-export const Footer = ({ children }: FooterPropsType) => {
-  return <footer className="footer">{children}</footer>;
+export const Footer = () => {
+  return <footer className="footer">© 2024 sidekick</footer>;
 };

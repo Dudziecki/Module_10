@@ -13,8 +13,7 @@ function App() {
         <div className="App">
           <Header />
           <RouterSetup />
-
-          <Footer>© 2024 sidekick</Footer>
+          <Footer/>
         </div>
       </AuthProvider>
     </ThemeProvider>
