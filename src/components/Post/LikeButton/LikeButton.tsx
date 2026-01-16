@@ -6,18 +6,17 @@ type LikeButtonPropsType = {
   count: number;
 };
 
-export const LikeButton: React.FC<LikeButtonPropsType> = ({ count }) => {
+export const LikeButton = ({ count }: LikeButtonPropsType) => {
   const [likes, setLikes] = useState(count);
   const [isLiked, setIsLiked] = useState(false);
 
+  function handleLikes() {
+    setIsLiked(!isLiked);
+    setLikes((prev) => (isLiked ? prev - 1 : prev + 1));
+  }
+
   return (
-    <button
-      onClick={() => {
-        setIsLiked(!isLiked);
-        setLikes((prev) => (isLiked ? prev - 1 : prev + 1));
-      }}
-      className="like-button"
-    >
+    <button onClick={handleLikes} className="like-button">
       <LikeIcon isLiked={isLiked} />
       <span className="likes-count">{likes} likes</span>
     </button>
