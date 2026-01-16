@@ -7,11 +7,11 @@ type SuggestedPeopleItemPropsType = {
   avatar: string;
 };
 
-export const SectionItem: React.FC<SuggestedPeopleItemPropsType> = ({
+export const SectionItem = ({
   title,
   subtitle,
   avatar,
-}) => {
+}: SuggestedPeopleItemPropsType) => {
   return (
     <div className="section-item">
       <div className="section-item-image">

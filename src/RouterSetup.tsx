@@ -10,7 +10,7 @@ import { Profile } from "./pages/Profile/Profile";
 
 import "./App.css";
 
-export const RouterSetup: React.FC = () => {
+export const RouterSetup = () => {
   const { user } = useAuth();
 
   return (
