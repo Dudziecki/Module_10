@@ -2,7 +2,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useLocation } from "react-router";
 import { SideKickLogo } from "../../assets/icons/SideKickLogo";
 import "./Header.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BurgerIcon } from "../../assets/icons/BurgerIcon";
 
 type HeaderPropsType = {
@@ -25,7 +25,6 @@ export const Header = ({ authShow = true }: HeaderPropsType) => {
   function closeMenu() {
     setIsMenuOpen(false);
   }
-
 
   return (
     <header className="header">

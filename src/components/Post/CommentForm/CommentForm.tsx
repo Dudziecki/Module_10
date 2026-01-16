@@ -27,14 +27,14 @@ export const CommentForm = ({ onAdd }: CommentFormProps) => {
     }
   }
 
-  function handleKeyDown(e:KeyboardEvent) {
+  function handleKeyDown(e: KeyboardEvent) {
     if (e.key === "Enter" && e.ctrlKey) {
       handleSubmit(e);
     }
   }
 
-  function handleCommentKeyDown(e:ChangeEvent<HTMLTextAreaElement>){
-    setText(e.target.value)
+  function handleCommentKeyDown(e: ChangeEvent<HTMLTextAreaElement>) {
+    setText(e.target.value);
   }
 
   return (
