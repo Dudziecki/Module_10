@@ -1,0 +1,32 @@
+.auth-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.helper-link {
+  color: var(--text-color);
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.terms-text {
+  color: var(--small-text-color);
+  font-size: 0.857rem;
+}
+
+.terms-text span {
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+}
+
+.terms-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.terms-container p {
+  text-align: center;
+}

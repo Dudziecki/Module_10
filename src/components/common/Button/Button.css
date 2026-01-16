@@ -1,0 +1,26 @@
+.base-button-styles {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  width: 100%;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 12px 0;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.base-button-styles:hover {
+  background-color: #08b94e;
+}
+
+.base-button-styles:active {
+  background-color: #6236cc;
+}
+
+.base-button-styles:disabled {
+  background-color: #bcc3e3;
+  cursor: not-allowed;
+}

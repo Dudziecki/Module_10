@@ -1,0 +1,29 @@
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.post-header-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--small-text-color);
+}
+
+.post-header-name {
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.143rem;
+  line-height: 150%;
+}
+
+.post-header-timestamp {
+  color: var(--small-text-color);
+  font-size: 1.143rem;
+  line-height: 150%;
+}

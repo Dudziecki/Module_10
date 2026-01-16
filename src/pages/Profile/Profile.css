@@ -1,0 +1,45 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "Edit Preferences"
+    "Edit Profile";
+  gap: 15px;
+}
+
+.profile-edit {
+  grid-area: Edit;
+}
+
+.profile-preferences {
+  grid-area: Preferences;
+}
+
+.profile-actions {
+  grid-area: Profile;
+}
+
+.profile-buttons {
+  margin-top: 10px;
+  padding: 2px;
+  background-color: var(--bg-primary-color);
+}
+
+.profile-button {
+  border: 0;
+  background-color: var(--bg-primary-color);
+  color: var(--text-color);
+}
+
+.profile-button.active {
+  border: 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}

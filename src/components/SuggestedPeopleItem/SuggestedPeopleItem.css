@@ -1,0 +1,38 @@
+.section-item {
+  padding: 12px 0;
+  display: flex;
+  gap: 16px;
+  width: 293px;
+}
+
+.section-item-image {
+  border-radius: 50%;
+}
+
+.section-item-image img {
+  max-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  height: auto;
+  display: block;
+}
+
+.section-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-item-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.section-item-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.143rem;
+  line-height: 150%;
+  color: var(--small-text-color);
+}
