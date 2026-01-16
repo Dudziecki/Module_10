@@ -7,6 +7,7 @@ import { Button } from "../../components/common/Button/Button";
 import { EmailIcon } from "../../assets/icons/EmailIcon";
 import { PasswordIcon } from "../../assets/icons/PasswordIcon";
 import { useAuth } from "../../contexts/AuthContext";
+import "./SignIn.css";
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -73,7 +74,7 @@ export const SignIn = () => {
           </Link>
         </p>
       </div>
-      {error && <p>error</p>}
+      {error && <p className="error-message">error</p>}
     </AuthLayout>
   );
 };
