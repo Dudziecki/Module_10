@@ -7,11 +7,11 @@ import "./Home.css";
 import { CreatePostModal } from "../../components/CreatePostModal/CreatePostModal";
 import { addPostAC, postsReducer } from "../../store/posts-reducer";
 import { useAuth } from "../../contexts/AuthContext";
-import picture from "../../assets/flowers.png";
+import { initialPosts } from "../../lib/InitialPosts/initialPosts";
 
 export const Home = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [posts, dispatch] = useReducer(postsReducer, []);
+  const [posts, dispatch] = useReducer(postsReducer, initialPosts);
   const { user } = useAuth();
 
   function handleCreatePost(data: { description: string; image?: string }) {
@@ -26,31 +26,14 @@ export const Home = () => {
   function closeCreatePostModal() {
     setIsCreateModalOpen(false);
   }
+
   return (
     <div className="home">
       <section className="home-feed">
         {user && <NewPostSection onAddPost={openCreatePostModal} />}
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <Post key={post.id} {...post} isLoggedIn />
         ))}
-        <Post
-          author={{ name: "Mike" }}
-          createdAt="3 min ago"
-          description="ffff"
-          likesCount={2}
-          comments={[{ id: 1, text: "string" }]}
-          image={picture}
-          isLoggedIn
-        />
-
-        <Post
-          author={{ name: "Mike" }}
-          createdAt="3 min ago"
-          description="ffff"
-          likesCount={2}
-          comments={[{ id: 1, text: "string" }]}
-          isLoggedIn
-        />
       </section>
 
       {user && (
